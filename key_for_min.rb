@@ -1,15 +1,13 @@
 require 'pry'
 
 def key_for_min_value(hash)
-  lowest_value = 1000
-  lowest_key = :name
+  lowest_value = nil
+  lowest_key = nil
   hash.collect do |key,value|
-    if value < lowest_value
+    if lowest_value == nil || value < lowest_value
       lowest_key = key
       lowest_value = value
     end
   end
-  if hash.size>0
-    return lowest_key
-  end
+  lowest_key
 end
